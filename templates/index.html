@@ -58,28 +58,32 @@
                                 <a href="{% url 'download' pk=movie.pk %}"><img src="{{ movie.image }}"
                                                                                 title="allbum-name"/></a>
                                 <h3>{{ movie.name }}</h3>
-                                <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a><br><br><br><br>
+                                <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a>
+                                <a class="button" href="{% url 'download' pk=movie.pk %}">Watch</a>
                             </div>
                         {% elif forloop.counter == 8 %}
                             <div class="content-grid last-grid">
                                 <a href="{% url 'download' pk=movie.pk %}"><img src="{{ movie.image }}"
                                                                                 title="allbum-name"/></a>
                                 <h3>{{ movie.name }}</h3>
-                                <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a><br><br><br><br>
+                                <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a>
+                                <a class="button" href="{% url 'download' pk=movie.pk %}">Watch</a>
                             </div>
                         {% elif forloop.counter == 12 %}
                             <div class="content-grid last-grid">
                                 <a href="{% url 'download' pk=movie.pk %}"><img src="{{ movie.image }}"
                                                                                 title="allbum-name"/></a>
                                 <h3>{{ movie.name }}</h3>
-                                <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a><br><br><br><br>
+                                <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a>
+                                <a class="button" href="{% url 'download' pk=movie.pk %}">Watch</a>
                             </div>
                         {% else %}
                             <div class="content-grid">
                                 <a href="{% url 'download' pk=movie.pk %}"><img src="{{ movie.image }}"
                                                                                 title="allbum-name"/></a>
                                 <h3>{{ movie.name }}</h3>
-                                <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a><br><br><br><br>
+                                <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a>
+                                <a class="button" href="{% url 'download' pk=movie.pk %}">Watch</a>
                             </div>
                         {% endif %}
 
