@@ -13,6 +13,7 @@ class Category(models.Model):
 class Movie(models.Model):
     name = models.CharField(max_length=200)
     image = models.CharField(max_length=400)
+    link = models.CharField(max_length=400, default='http://localhost/downloads/baxster_admin_panel.zip')
     category = models.ForeignKey(Category)
 
     def __unicode__(self):

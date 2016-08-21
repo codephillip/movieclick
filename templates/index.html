@@ -10,7 +10,7 @@
     {% for movie in movies %}
         <a href="{% url 'download' pk=movie.pk %}"><img src="{{ movie.image }}" title="allbum-name"/></a>
         <h3>{{ movie.name }}</h3>
-        <a class="button" href="{% url 'download' pk=movie.pk %}">Watch now</a><br><br><br><br>
+        <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a><br><br><br><br>
     {% endfor %}
 
 {% endblock %}
