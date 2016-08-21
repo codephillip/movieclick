@@ -6,8 +6,9 @@
 {% endblock %}
 
 {% block content %}
-    <p>hello world download {{ pk }}</p>
     <p>{{ movie.name }}</p>
     <img src="{{ movie.image }}" alt=""><br><br>
+    <p>PLEASE WAIT..</p>
+    <span>7 seconds</span><br>
     <a class="button" href="{{ movie.link }}">Download</a>
 {% endblock %}
