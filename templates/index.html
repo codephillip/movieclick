@@ -8,6 +8,7 @@
             <div class="left-sidebar">
                 <div class="sidebar-boxs">
                     <div class="sidebar-box">
+                        {#TODO PLACE HERE ADS#}
                         <h2>Allbum-Name</h2>
                         <a href="#"><img src="{% static 'images/allbum.jpg' %}" title="image-name"/></a>
                         <h3>LOREM IPSUM DOLOR SIT AMET, CONSECTETUR ADIPISICING ELIT.</h3>
@@ -46,19 +47,7 @@
             <div class="right-content">
                 <div class="right-content-heading">
                     <div class="right-content-heading-left">
-                        <h3>Latest Colletcions of videos</h3>
-                    </div>
-                    <div class="right-content-heading-right">
-                        <div class="social-icons">
-                            <ul>
-                                <li><a class="facebook" href="#" target="_blank"> </a></li>
-                                <li><a class="twitter" href="#" target="_blank"></a></li>
-                                <li><a class="googleplus" href="#" target="_blank"></a></li>
-                                <li><a class="pinterest" href="#" target="_blank"></a></li>
-                                <li><a class="dribbble" href="#" target="_blank"></a></li>
-                                <li><a class="vimeo" href="#" target="_blank"></a></li>
-                            </ul>
-                        </div>
+                        <h3>Latest Collection</h3>
                     </div>
                     <div class="clear"></div>
                 </div>
@@ -78,7 +67,7 @@
                                 <h3>{{ movie.name }}</h3>
                                 <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a><br><br><br><br>
                             </div>
-                       {% elif forloop.counter == 12 %}
+                        {% elif forloop.counter == 12 %}
                             <div class="content-grid last-grid">
                                 <a href="{% url 'download' pk=movie.pk %}"><img src="{{ movie.image }}"
                                                                                 title="allbum-name"/></a>
