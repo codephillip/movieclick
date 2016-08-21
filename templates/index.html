@@ -6,9 +6,11 @@
 {% endblock %}
 
 {% block content %}
-    {% load static %}
-    <a href="{% url 'download' pk=1 %}"><img src="{% static 'images/gridallbum4.png' %}" title="allbum-name"/></a>
-    <h3>Lorem ipsum dolor sit amet</h3>
-    <a class="button" href="{% url 'download' pk=1 %}">Watch now</a>
+
+    {% for movie in movies %}
+        <a href="{% url 'download' pk=movie.pk %}"><img src="{{ movie.image }}" title="allbum-name"/></a>
+        <h3>{{ movie.name }}</h3>
+        <a class="button" href="{% url 'download' pk=movie.pk %}">Watch now</a><br><br><br><br>
+    {% endfor %}
 
 {% endblock %}

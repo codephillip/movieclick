@@ -1,8 +1,13 @@
 from django.shortcuts import render
 
+from movie.models import Movie
+
 
 def index(request):
-    return render(request, 'index.html')
+    movies = Movie.objects.all()
+    return render(request, 'index.html', {
+        'movies': movies
+    })
 
 
 def download(request, pk):
