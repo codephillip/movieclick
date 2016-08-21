@@ -1,0 +1,30 @@
+.title_class {
+    font-size: 300%;
+    color: dimgrey;
+    font-family: "Roboto Thin", sans-serif;
+}
+
+h1 {
+    background-color: dimgrey;
+    color: white;
+    text-align: center;
+}
+
+h2 {
+    font-family: "Roboto Light", sans-serif;
+}
+
+p {
+    font-family: "Roboto", "Lucida Grande", "DejaVu Sans", "Bitstream Vera Sans", Verdana, Arial, sans-serif;
+    color: dimgrey;
+}
+
+body {
+    margin-top: 5%;
+    margin-left: 20%;
+    margin-right: 20%;
+}
+
+.myclass {
+    background-color: ghostwhite;
+}

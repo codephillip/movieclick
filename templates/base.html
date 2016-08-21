@@ -1,0 +1,51 @@
+{% load staticfiles %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>
+        {% block title %}
+            MovieClick
+        {% endblock %}
+    </title>
+    <link rel="stylesheet" href={% static 'css/styles.css' %}>
+</head>
+<body>
+<div class="myclass">
+
+    <h2 class="title_class">HELLO BLOG</h2>
+
+    {% block header %}
+        <nav>
+            <ul>
+                <li>
+                    <a href="{% url 'index' %}">Home</a>
+                </li>
+{#                <li>#}
+{#                    <a href="{% url 'download' %}">About</a>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a href="{% url 'watch' %}">Contact</a>#}
+{#                </li>#}
+{#                <li>#}
+{#                    <a href="{% url 'category' %}">Browse</a>#}
+{#                </li>#}
+            </ul>
+        </nav>
+    {% endblock %}
+
+
+    {% block content %}
+
+    {% endblock %}
+</div>
+
+{% block footer %}
+    <h4>
+        &copy; codephillip
+    </h4>
+{% endblock %}
+
+
+</body>
+</html>
