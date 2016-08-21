@@ -1,14 +1,44 @@
 {% extends 'base.html' %}
 
-{% block header %}
-    <h1>Download</h1>
-    {{ block.super }}
-{% endblock %}
-
 {% block content %}
-    <p>{{ movie.name }}</p>
-    <img src="{{ movie.image }}" alt=""><br><br>
-    <p>PLEASE WAIT..</p>
-    <span>7 seconds</span><br>
-    <a class="button" href="{{ movie.link }}">Download</a>
+
+    <div class="main-content">
+        <div class="wrap">
+            <div class="left-sidebar">
+                <div class="sidebar-boxs">
+                    <div class="clear"></div>
+                    <div class="type-videos">
+                        {#TODO PLACE HERE ADS#}
+                        <h3>Categories</h3>
+                        <ul>
+                            <li><a href="#">Lorem ipsum dolor</a></li>
+                            <li><a href="#">Lorem ipsum dolor</a></li>
+                            <li><a href="#">Lorem ipsum dolor</a></li>
+                            <li><a href="#">Lorem ipsum dolor</a></li>
+                            <li><a href="#">Lorem ipsum dolor</a></li>
+                            <li><a href="#">Lorem ipsum dolor</a></li>
+                            <li><a href="#">Lorem ipsum dolor</a></li>
+                            <li><a href="#">Lorem ipsum dolor</a></li>
+                            <li><a href="#">Lorem ipsum dolor</a></li>
+                            <li><a href="#">Lorem ipsum dolor</a></li>
+                            <li><a href="#">Lorem ipsum dolor</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="right-content">
+                <div class="right-content-heading">
+                </div>
+                <div class="inner-page">
+                    <div class="content-grid last-grid">
+                        <h3>{{ movie.name }}</h3>
+                        <img src="{{ movie.image }}" alt=""><br><br>
+                        <a class="button" href="{{ movie.link }}">Download</a>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="clear"></div>
 {% endblock %}
