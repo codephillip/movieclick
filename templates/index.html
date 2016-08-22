@@ -94,12 +94,12 @@
 
                     <div class="pagenation">
                         <ul>
-                            <li><a href="#">1</a></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">Next</a></li>
+                            <li><a href="{% url 'browse' pk=1 %}">1</a></li>
+                            <li><a href="{% url 'browse' pk=12 %}">2</a></li>
+                            <li><a href="{% url 'browse' pk=24 %}">3</a></li>
+                            <li><a href="{% url 'browse' pk=36 %}">4</a></li>
+                            <li><a href="{% url 'browse' pk=48 %}">5</a></li>
+                            <li><a href="{% url 'browse' pk=60 %}">Next</a></li>
                         </ul>
                     </div>
                     <div class="clear"></div>
