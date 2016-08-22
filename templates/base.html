@@ -23,8 +23,9 @@
             <!---start-top-menu-search---->
             <div class="top-menu">
                 <div class="search">
-                    <form>
-                        <input type="text" class="textbox" value="Search:" onfocus="this.value = '';"
+                    <form action = "{% url 'search' %}" method="post">
+                        {% csrf_token %}
+                        <input type="text" class="textbox" name="movie" value="Search:" onfocus="this.value = '';"
                                onblur="if (this.value == '') {this.value = 'Search';}">
                         <input type="submit" value=" "/>
                     </form>

@@ -6,6 +6,7 @@ next_limit = 60
 
 
 def index(request):
+    print('index')
     movies = Movie.objects.all()[:12]
     return render(request, 'index.html', {
         'movies': movies
@@ -23,6 +24,7 @@ def browse(request, pk):
         next_limit += 12
     else:
         movies = Movie.objects.all()[pk: end + 12]
+        next_limit = 60
     return render(request, 'index.html', {
         'movies': movies
     })
@@ -33,4 +35,15 @@ def download(request, pk):
     return render(request, 'download.html', {
         'pk': pk,
         'movie': movie
+    })
+
+
+def search(request):
+    print('post result' + request.POST['movie'])
+    if request.POST:
+        movies = Movie.objects.filter(name__contains=request.POST['movie'])
+    else:
+        movies = Movie.objects.all()[:12]
+    return render(request, 'index.html', {
+        'movies': movies
     })
