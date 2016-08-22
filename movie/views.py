@@ -40,8 +40,12 @@ def download(request, pk):
 
 def search(request):
     print('post result' + request.POST['movie'])
+
     if request.POST:
-        movies = Movie.objects.filter(name__contains=request.POST['movie'])
+        if request.POST['movie'] == 'Search:':
+            movies = Movie.objects.all()[:12]
+        else:
+            movies = Movie.objects.filter(name__contains=request.POST['movie'])
     else:
         movies = Movie.objects.all()[:12]
     return render(request, 'index.html', {
