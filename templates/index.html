@@ -59,7 +59,7 @@
                                                                                 title="allbum-name"/></a>
                                 <h3>{{ movie.name }}</h3>
                                 <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a>
-                                <a class="button" href="{% url 'download' pk=movie.pk %}">Watch</a>
+                                <a class="button" href="{% url 'watch' pk=movie.pk %}">Watch</a>
                             </div>
                         {% elif forloop.counter == 8 %}
                             <div class="content-grid last-grid">
@@ -67,7 +67,7 @@
                                                                                 title="allbum-name"/></a>
                                 <h3>{{ movie.name }}</h3>
                                 <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a>
-                                <a class="button" href="{% url 'download' pk=movie.pk %}">Watch</a>
+                                <a class="button" href="{% url 'watch' pk=movie.pk %}">Watch</a>
                             </div>
                         {% elif forloop.counter == 12 %}
                             <div class="content-grid last-grid">
@@ -75,7 +75,7 @@
                                                                                 title="allbum-name"/></a>
                                 <h3>{{ movie.name }}</h3>
                                 <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a>
-                                <a class="button" href="{% url 'download' pk=movie.pk %}">Watch</a>
+                                <a class="button" href="{% url 'watch' pk=movie.pk %}">Watch</a>
                             </div>
                         {% else %}
                             <div class="content-grid">
@@ -83,7 +83,7 @@
                                                                                 title="allbum-name"/></a>
                                 <h3>{{ movie.name }}</h3>
                                 <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a>
-                                <a class="button" href="{% url 'download' pk=movie.pk %}">Watch</a>
+                                <a class="button" href="{% url 'watch' pk=movie.pk %}">Watch</a>
                             </div>
                         {% endif %}
 

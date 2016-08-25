@@ -51,3 +51,11 @@ def search(request):
     return render(request, 'index.html', {
         'movies': movies
     })
+
+
+def watch(request, pk):
+    movie = Movie.objects.get(pk=pk)
+    return render(request, 'watch.html', {
+        'pk': pk,
+        'movie': movie
+    })
