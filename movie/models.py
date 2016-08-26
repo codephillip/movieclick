@@ -11,11 +11,13 @@ class Category(models.Model):
 
 
 class Movie(models.Model):
-    name = models.CharField(max_length=200, default='Planet of the Apes')
-    image = models.CharField(max_length=400, default='http://localhost/images/gridallbum3.png')
-    link = models.CharField(max_length=400, default='http://localhost/downloads/movie1.zip')
+    name = models.CharField(max_length=200, default='Planet of the Apes', null=True)
+    image = models.CharField(max_length=250, default='http://localhost/images/gridallbum3.png', null=True)
+    link = models.CharField(max_length=400, default='http://localhost/downloads/movie1.zip', null=True)
+    description = models.TextField(null=True)
+    release_date = models.CharField(max_length=100, default='2016-03-23', null=True)
+    vote_average = models.CharField(max_length=100, default='5.0', null=True)
     category = models.ForeignKey(Category)
 
     def __unicode__(self):
         return self.name
-
