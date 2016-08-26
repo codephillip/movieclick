@@ -33,9 +33,10 @@
                     <div class="content-grid">
                         <h3>{{ movie.name }}</h3>
                         <img src="http://localhost/images/ss.jpg" alt=""><br><br>
-                        <h3>VOTES: {{ movie.vote_average }}</h3>
-                        <p class="mypara">DESCRIPTION: {{ movie.description }}</p>
-                        <h3>RELEASE DATE: {{ movie.release_date }}</h3>
+                        <h3>VOTES<br>{{ movie.vote_average }}</h3>
+                        <h3>DESCRIPTION</h3>
+                        <p class="mypara">{{ movie.description }}</p>
+                        <h3>RELEASE DATE<br>{{ movie.release_date }}</h3>
                         <a class="button" href="{{ movie.link }}">Download</a>
                     </div>
                 </div>
