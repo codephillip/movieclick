@@ -11,8 +11,8 @@ varx = "hello"
 def index(request):
     print('index')
     categorys = Category.objects.all()
-    category_browse = Category.objects.get(id=1)
-    movies = Movie.objects.filter(category=Category.objects.filter(id=1))[:12]
+    category_browse = Category.objects.get(id=2)
+    movies = Movie.objects.filter(category=Category.objects.filter(id=2))[:12]
     return render(request, 'index.html', {
         'movies': movies,
         'categorys': categorys,
