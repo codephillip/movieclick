@@ -81,7 +81,7 @@
                             <div class="content-grid last-grid">
                                 <a href="{% url 'download' pk=movie.pk %}"><img src="{{ movie.image }}"
                                                                                 title="allbum-name"/></a>
-                                <h3>{{ movie.name|truncatewords:3 }}</h3>
+                                <h3>{{ movie.name|truncatewords:4 }}</h3>
                                 <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a>
                                 <a class="button" href="{% url 'watch' pk=movie.pk %}">Watch</a>
                             </div>
@@ -89,7 +89,7 @@
                             <div class="content-grid last-grid">
                                 <a href="{% url 'download' pk=movie.pk %}"><img src="{{ movie.image }}"
                                                                                 title="allbum-name"/></a>
-                                <h3>{{ movie.name }}</h3>
+                                <h3>{{ movie.name|truncatewords:4 }}</h3>
                                 <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a>
                                 <a class="button" href="{% url 'watch' pk=movie.pk %}">Watch</a>
                             </div>
@@ -97,7 +97,7 @@
                             <div class="content-grid last-grid">
                                 <a href="{% url 'download' pk=movie.pk %}"><img src="{{ movie.image }}"
                                                                                 title="allbum-name"/></a>
-                                <h3>{{ movie.name }}</h3>
+                                <h3>{{ movie.name|truncatewords:4 }}</h3>
                                 <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a>
                                 <a class="button" href="{% url 'watch' pk=movie.pk %}">Watch</a>
                             </div>
@@ -105,7 +105,7 @@
                             <div class="content-grid">
                                 <a href="{% url 'download' pk=movie.pk %}"><img src="{{ movie.image }}"
                                                                                 title="allbum-name"/></a>
-                                <h3>{{ movie.name }}</h3>
+                                <h3>{{ movie.name|truncatewords:4 }}</h3>
                                 <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a>
                                 <a class="button" href="{% url 'watch' pk=movie.pk %}">Watch</a>
                             </div>
@@ -118,7 +118,7 @@
 
                     <div class="pagenation">
                         <ul>
-                            <li><a href="{% url 'browse' pk=2 year=category_browse %}">1</a></li>
+                            <li><a href="{% url 'browse' pk=1 year=category_browse %}">1</a></li>
                             <li><a href="{% url 'browse' pk=12 year=category_browse %}">2</a></li>
                             <li><a href="{% url 'browse' pk=24 year=category_browse %}">3</a></li>
                             <li><a href="{% url 'browse' pk=36 year=category_browse %}">4</a></li>

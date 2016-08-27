@@ -25,7 +25,7 @@ def browse(request, pk, year):
     end = int(pk)
     categorys = Category.objects.all()
     category_browse = Category.objects.get(year=year)
-    if end == 2:
+    if end == 1:
         movies = Movie.objects.filter(category=category_browse)[:12]
         next_limit = 60
     elif end == 60:
