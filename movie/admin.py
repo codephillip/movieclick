@@ -5,7 +5,7 @@ from movie.models import Movie, Category
 
 class MovieAdmin(admin.ModelAdmin):
     model = Movie
-    list_display = ('id', 'name', 'category', 'link', 'image', 'description', 'vote_average', 'release_date')
+    list_display = ('id', 'name', 'category', 'download_link', 'watch_link')
 
 admin.site.register(Movie, MovieAdmin)
 admin.site.register(Category)
