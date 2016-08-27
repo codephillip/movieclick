@@ -9,26 +9,33 @@ varx = "hello"
 
 def index(request):
     print('index')
-    movies = Movie.objects.all()[:12]
+    categorys = Category.objects.all()
+    category_browse = Category.objects.get(id=1)
+    movies = Movie.objects.filter(category=Category.objects.filter(id=1))[:12]
     return render(request, 'index.html', {
-        'movies': movies
+        'movies': movies,
+        'categorys': categorys,
+        'category_browse': category_browse
     })
 
 
-def browse(request, pk):
+def browse(request, pk, year):
     global next_limit
     end = int(pk)
+    categorys = Category.objects.all()
+    category_browse = Category.objects.get(year=year)
     if end == 1:
-        movies = Movie.objects.all()[:12]
+        movies = Movie.objects.filter(category=category_browse)[:12]
         next_limit = 60
     elif end == 60:
-        movies = Movie.objects.all()[next_limit: next_limit + 12]
+        movies = Movie.objects.filter(category=category_browse)[next_limit: next_limit + 12]
         next_limit += 12
     else:
-        movies = Movie.objects.all()[pk: end + 12]
-        next_limit = 60
+        movies = Movie.objects.filter(category=category_browse)[pk: end + 12]
     return render(request, 'index.html', {
-        'movies': movies
+        'movies': movies,
+        'categorys': categorys,
+        'category_browse': category_browse
     })
 
 
@@ -85,7 +92,6 @@ def connect_to_server():
             print(x.get('overview'))
             varx = x.get('original_title')
 
-
             try:
                 save_to_db(x.get('original_title'), 'http://image.tmdb.org/t/p/w300' + x.get('poster_path'),
                            x.get('overview'), x.get('vote_average'), x.get('release_date'))
@@ -103,6 +109,7 @@ def save_to_db(title, image, overview, vote_average, release_date):
     movie.save()
 
 
+# this is for development purposes only
 def updatedb(request):
     item = connect_to_server()
     return render(request, 'updatedb.html', {

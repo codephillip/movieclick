@@ -4,10 +4,10 @@ from django.db import models
 
 
 class Category(models.Model):
-    name = models.CharField(max_length=200)
+    year = models.IntegerField(default=2016)
 
     def __unicode__(self):
-        return self.name
+        return str(self.year)
 
 
 class Movie(models.Model):

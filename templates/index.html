@@ -39,38 +39,30 @@
                                 (adsbygoogle = window.adsbygoogle || []).push({});
                             </script>
                             <!-- adblock detector -->
-{#                            <script>#}
-{#                                var adBlockEnabled = false;#}
-{#                                var testAd = document.createElement('div');#}
-{#                                testAd.innerHTML = '&nbsp;';#}
-{#                                testAd.className = 'adsbox';#}
-{#                                document.body.appendChild(testAd);#}
-{#                                window.setTimeout(function () {#}
-{#                                    if (testAd.offsetHeight === 0) {#}
-{#                                        adBlockEnabled = true;#}
-{#                                        window.location = "http://www.movieclick.xyz/remove_adblocker";#}
-{#                                    }#}
-{#                                    testAd.remove();#}
-{#                                }, 100);#}
-{#                            </script>#}
+                            {#                            <script>#}
+                            {#                                var adBlockEnabled = false;#}
+                            {#                                var testAd = document.createElement('div');#}
+                            {#                                testAd.innerHTML = '&nbsp;';#}
+                            {#                                testAd.className = 'adsbox';#}
+                            {#                                document.body.appendChild(testAd);#}
+                            {#                                window.setTimeout(function () {#}
+                            {#                                    if (testAd.offsetHeight === 0) {#}
+                            {#                                        adBlockEnabled = true;#}
+                            {#                                        window.location = "http://www.movieclick.xyz/remove_adblocker";#}
+                            {#                                    }#}
+                            {#                                    testAd.remove();#}
+                            {#                                }, 100);#}
+                            {#                            </script>#}
                         </div>
 
                     </div>
                     <div class="clear"></div>
                     <div class="type-videos">
-                        <h3>Labels</h3>
+                        <h3>Year</h3>
                         <ul>
-                            <li><a href="#">Lorem ipsum dolor</a></li>
-                            <li><a href="#">Lorem ipsum dolor</a></li>
-                            <li><a href="#">Lorem ipsum dolor</a></li>
-                            <li><a href="#">Lorem ipsum dolor</a></li>
-                            <li><a href="#">Lorem ipsum dolor</a></li>
-                            <li><a href="#">Lorem ipsum dolor</a></li>
-                            <li><a href="#">Lorem ipsum dolor</a></li>
-                            <li><a href="#">Lorem ipsum dolor</a></li>
-                            <li><a href="#">Lorem ipsum dolor</a></li>
-                            <li><a href="#">Lorem ipsum dolor</a></li>
-                            <li><a href="#">Lorem ipsum dolor</a></li>
+                            {% for category in categorys %}
+                                <li><a href="{% url 'browse' pk=1 year=category.year %}">{{ category.year }}</a></li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>
@@ -125,12 +117,12 @@
 
                     <div class="pagenation">
                         <ul>
-                            <li><a href="{% url 'browse' pk=1 %}">1</a></li>
-                            <li><a href="{% url 'browse' pk=12 %}">2</a></li>
-                            <li><a href="{% url 'browse' pk=24 %}">3</a></li>
-                            <li><a href="{% url 'browse' pk=36 %}">4</a></li>
-                            <li><a href="{% url 'browse' pk=48 %}">5</a></li>
-                            <li><a href="{% url 'browse' pk=60 %}">Next</a></li>
+                            <li><a href="{% url 'browse' pk=1 year=category_browse %}">1</a></li>
+                            <li><a href="{% url 'browse' pk=12 year=category_browse %}">2</a></li>
+                            <li><a href="{% url 'browse' pk=24 year=category_browse %}">3</a></li>
+                            <li><a href="{% url 'browse' pk=36 year=category_browse %}">4</a></li>
+                            <li><a href="{% url 'browse' pk=48 year=category_browse %}">5</a></li>
+                            <li><a href="{% url 'browse' pk=60 year=category_browse %}">Next</a></li>
                         </ul>
                     </div>
                     <div class="clear"></div>

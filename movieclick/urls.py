@@ -6,7 +6,7 @@ from movie import views
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', views.index, name='index'),
-    url(r'^browse/(?P<pk>[-\w]+)/$', views.browse, name='browse'),
+    url(r'^browse/(?P<year>[-\w]+)/(?P<pk>[-\w]+)/$', views.browse, name='browse'),
     url(r'^search/$', views.search, name='search'),
     url(r'^updatedb/$', views.updatedb, name='updatedb'),
     url(r'^remove_adblocker/$', views.remove_adblocker, name='remove_adblocker'),
