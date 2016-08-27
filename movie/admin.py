@@ -7,5 +7,11 @@ class MovieAdmin(admin.ModelAdmin):
     model = Movie
     list_display = ('id', 'name', 'category', 'download_link', 'watch_link')
 
+
+class CategoryAdmin(admin.ModelAdmin):
+    model = Category
+    list_display = ('id', 'year')
+
+
 admin.site.register(Movie, MovieAdmin)
-admin.site.register(Category)
+admin.site.register(Category, CategoryAdmin)
