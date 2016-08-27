@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from movie.models import Category, Movie
+from django.utils.encoding import smart_str
 import simplejson as json
 import urllib2
 
@@ -91,18 +92,18 @@ def connect_to_server():
 
         for x in result2:
             global varx
-            print(x.get('original_title'))
-            print(x.get('poster_path'))
-            print(x.get('overview'))
-            varx = x.get('original_title')
+            print(smart_str(x.get('original_title')))
+            print(smart_str(x.get('poster_path')))
+            print(smart_str(x.get('overview')))
+            varx = smart_str(x.get('original_title'))
 
             try:
-                save_to_db(x.get('original_title'), 'http://image.tmdb.org/t/p/w300' + x.get('poster_path'),
-                           x.get('overview'), x.get('vote_average'), x.get('release_date'))
+                save_to_db(smart_str(x.get('original_title')), 'http://image.tmdb.org/t/p/w300' + x.get('poster_path'),
+                           smart_str(x.get('overview')), x.get('vote_average'), x.get('release_date'))
             except Exception:
                 print(str(Exception))
-                save_to_db(x.get('original_title'), x.get('poster_path'),
-                           x.get('overview'), x.get('vote_average'), x.get('release_date'))
+                save_to_db(smart_str(x.get('original_title')), x.get('poster_path'),
+                           smart_str(x.get('overview')), x.get('vote_average'), x.get('release_date'))
     return varx
 
 
