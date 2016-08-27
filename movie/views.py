@@ -107,7 +107,7 @@ def connect_to_server():
 
 
 def save_to_db(title, image, overview, vote_average, release_date):
-    cate_object = Category.objects.get(year='2014')
+    cate_object = Category.objects.get(year=2014)
     movie = Movie(name=title, image=image, category=cate_object, description=overview, vote_average=vote_average,
                   release_date=release_date)
     movie.save()
