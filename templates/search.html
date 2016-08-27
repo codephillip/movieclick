@@ -77,57 +77,15 @@
                 </div>
                 <div class="content-grids">
                     {% for movie in movies %}
-                        {% if forloop.counter == 4 %}
-                            <div class="content-grid last-grid">
-                                <a href="{% url 'download' pk=movie.pk %}"><img src="{{ movie.image }}"
-                                                                                title="allbum-name"/></a>
-                                <h3>{{ movie.name|truncatewords:4 }}</h3>
-                                <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a>
-                                <a class="button" href="{% url 'watch' pk=movie.pk %}">Watch</a>
-                            </div>
-                        {% elif forloop.counter == 8 %}
-                            <div class="content-grid last-grid">
-                                <a href="{% url 'download' pk=movie.pk %}"><img src="{{ movie.image }}"
-                                                                                title="allbum-name"/></a>
-                                <h3>{{ movie.name }}</h3>
-                                <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a>
-                                <a class="button" href="{% url 'watch' pk=movie.pk %}">Watch</a>
-                            </div>
-                        {% elif forloop.counter == 12 %}
-                            <div class="content-grid last-grid">
-                                <a href="{% url 'download' pk=movie.pk %}"><img src="{{ movie.image }}"
-                                                                                title="allbum-name"/></a>
-                                <h3>{{ movie.name }}</h3>
-                                <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a>
-                                <a class="button" href="{% url 'watch' pk=movie.pk %}">Watch</a>
-                            </div>
-                        {% else %}
-                            <div class="content-grid">
-                                <a href="{% url 'download' pk=movie.pk %}"><img src="{{ movie.image }}"
-                                                                                title="allbum-name"/></a>
-                                <h3>{{ movie.name }}</h3>
-                                <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a>
-                                <a class="button" href="{% url 'watch' pk=movie.pk %}">Watch</a>
-                            </div>
-                        {% endif %}
-
+                        <div class="content-grid last-grid">
+                            <a href="{% url 'download' pk=movie.pk %}"><img src="{{ movie.image }}"
+                                                                            title="allbum-name"/></a>
+                            <h3>{{ movie.name }}</h3>
+                            <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a>
+                            <a class="button" href="{% url 'watch' pk=movie.pk %}">Watch</a>
+                        </div>
                     {% endfor %}
-
-
                     <div class="clear"></div>
-
-{#                    <div class="pagenation">#}
-{#                        <ul>#}
-{#                            <li><a href="{% url 'browse' pk=1 year=category_browse %}">1</a></li>#}
-{#                            <li><a href="{% url 'browse' pk=12 year=category_browse %}">2</a></li>#}
-{#                            <li><a href="{% url 'browse' pk=24 year=category_browse %}">3</a></li>#}
-{#                            <li><a href="{% url 'browse' pk=36 year=category_browse %}">4</a></li>#}
-{#                            <li><a href="{% url 'browse' pk=48 year=category_browse %}">5</a></li>#}
-{#                            <li><a href="{% url 'browse' pk=60 year=category_browse %}">Next</a></li>#}
-{#                        </ul>#}
-{#                    </div>#}
-                    <div class="clear"></div>
-
                 </div>
             </div>
             <div class="clear"></div>

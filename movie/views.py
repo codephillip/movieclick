@@ -52,7 +52,6 @@ def download(request, pk):
 def search(request):
     print('post result' + request.POST['movie'])
     categorys = Category.objects.all()
-    category_browse = Category.objects.get(id=1)
 
     if request.POST:
         if request.POST['movie'] == 'Search:':
