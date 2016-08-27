@@ -80,7 +80,7 @@ def connect_to_server():
         # if page <= 24:
         #     continue
         print('PAGE' + str(page))
-        base_url = "http://api.themoviedb.org/3/discover/movie?primary_release_year=2016&sort_by=popularity.desc&api_key=ae6766bd4f9bebf18e24c1bc0c2c282a&"
+        base_url = "http://api.themoviedb.org/3/discover/movie?primary_release_year=2015&sort_by=popularity.desc&api_key=ae6766bd4f9bebf18e24c1bc0c2c282a&"
         actual_url = base_url + 'page=' + str(page)
         # actual_url = 'http://localhost/downloads/movie1.json'
         print('actual: ' + actual_url)
@@ -108,7 +108,7 @@ def connect_to_server():
 
 
 def save_to_db(title, image, overview, vote_average, release_date):
-    cate_object = Category.objects.get(year=2016)
+    cate_object = Category.objects.get(year=2015)
     movie = Movie(name=title, image=image, category=cate_object, description=overview, vote_average=vote_average,
                   release_date=release_date)
     movie.save()
