@@ -8,64 +8,57 @@
             MovieClick
         {% endblock %}
     </title>
-    <link rel="stylesheet" href={% static 'css/styles.css' %} type="text/css"  media="all">
+    <link rel="stylesheet" href={% static 'css/styles.css' %} type="text/css" media="all">
+{#    <script src="{% static 'js/ads.js' %}"></script>#}
 </head>
 <body>
-    {% block header %}
-        <!---start-header---->
-        <div class="header">
-        <div class="wrap">
-            <!---start-logo---->
-            <div class="logo">
-                <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" title="logo"/></a>
-            </div>
-            <!---End-logo---->
-            <!---start-top-menu-search---->
-            <div class="top-menu">
-                <div class="search">
-                    <form action = "{% url 'search' %}" method="post">
-                        {% csrf_token %}
-                        <input type="text" class="textbox" name="movie" value="Search:" onfocus="this.value = '';"
-                               onblur="if (this.value == '') {this.value = 'Search';}">
-                        <input type="submit" value=" "/>
-                    </form>
-                </div>
-                <div class="clear"></div>
+
+{#    <script>#}
+{#      if( window.canRunAds === undefined ){#}
+{#          alert("Ad block is installed and active. Please support us by disabling it. Thanks!");#}
+{#          window.location = 'http://localhost:8000/remove_adblocker';#}
+{#      }#}
+{#    </script>#}
+{% block header %}
+    <!---start-header---->
+    <div class="header">
+    <div class="wrap">
+        <!---start-logo---->
+        <div class="logo">
+            <a href="{% url 'index' %}"><img src="{% static 'images/logo.png' %}" title="logo"/></a>
+        </div>
+        <!---End-logo---->
+        <!---start-top-menu-search---->
+        <div class="top-menu">
+            <div class="search">
+                <form action="{% url 'search' %}" method="post">
+                    {% csrf_token %}
+                    <input type="text" class="textbox" name="movie" value="Search:" onfocus="this.value = '';"
+                           onblur="if (this.value == '') {this.value = 'Search';}">
+                    <input type="submit" value=" "/>
+                </form>
             </div>
             <div class="clear"></div>
-            <!---End-top-menu-search---->
         </div>
-        <!---End-header---->
-        {#        <nav>#}
-        {#            <ul>#}
-        {#                <li>#}
-        {#                    <a href="{% url 'index' %}">Home</a>#}
-        {#                </li>#}
-        {#                <li>#}
-        {#                    <a href="{% url 'download' %}">About</a>#}
-        {#                </li>#}
-        {#                <li>#}
-        {#                    <a href="{% url 'watch' %}">Contact</a>#}
-        {#                </li>#}
-        {#                <li>#}
-        {#                    <a href="{% url 'category' %}">Browse</a>#}
-        {#                </li>#}
-        {#            </ul>#}
-        {#        </nav>#}
-    {% endblock %}
-
+        <div class="clear"></div>
+        <!---End-top-menu-search---->
     </div>
-    <div class="clear"></div>
+    <!---End-header---->
+{% endblock %}
+
+</div>
+<div class="clear"></div>
 
 
-    {% block content %}
+{% block content %}
 
-    {% endblock %}
+{% endblock %}
 
 {% block footer %}
     <div class="copy-right">
         <p>Design by <a href="http://w3layouts.com/">W3layouts</a></p>
     </div>
 {% endblock %}
+
 </body>
 </html>

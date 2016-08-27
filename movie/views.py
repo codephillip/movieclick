@@ -108,3 +108,7 @@ def updatedb(request):
     return render(request, 'updatedb.html', {
         'item': item
     })
+
+
+def remove_adblocker(request):
+    return render(request, 'remove_adblocker.html')

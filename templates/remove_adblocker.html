@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    {% load static %}
+
+    <style>
+        .demo-wrapper {
+            width: 500px;
+            margin: 150px auto;
+        }
+
+        #message {
+            width: 600px;
+            margin: 150px auto;
+            padding: 10px 20px;
+            text-align: center;
+            background-color: #0f9d58;
+            color: #fff;
+            border-radius: 3px;
+        }
+    </style>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+    <script>
+        $(document).ready(function () {
+            var div = $('<div>').attr('id', 'message').text('Ad block is installed and active. Please support us by disabling it.');
+            var add = $('body').append(div);
+        });
+    </script>
+
+    <script>
+        var adBlockEnabled = false;
+        var testAd = document.createElement('div');
+        testAd.innerHTML = '&nbsp;';
+        testAd.className = 'adsbox';
+        document.body.appendChild(testAd);
+        window.setTimeout(function () {
+            if (testAd.offsetHeight === 0) {
+                adBlockEnabled = true;
+            } else {
+                window.location = "http://www.movieclick.xyz";
+            }
+            testAd.remove();
+        }, 100);
+    </script>
+
+    <div class="main-content">
+
+    </div>
+    <div class="clear"></div>
+
+{% endblock %}

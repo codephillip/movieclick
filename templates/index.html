@@ -27,15 +27,34 @@
             <div class="left-sidebar">
                 <div class="sidebar-boxs">
                     <div class="sidebar-box">
-                        <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-                        <!-- leftside1 -->
-                        <ins class="adsbygoogle"
-                             style="display:inline-block;width:300px;height:600px"
-                             data-ad-client="ca-pub-1319732109388212"
-                             data-ad-slot="6789099482"></ins>
-                        <script>
-                            (adsbygoogle = window.adsbygoogle || []).push({});
-                        </script>
+                        <div class="myTestAd" style=" text-align:center;margin:10px">
+                            <!-- advert code goes here -->
+                            <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+                            <!-- leftside1 -->
+                            <ins class="adsbygoogle"
+                                 style="display:inline-block;width:300px;height:600px"
+                                 data-ad-client="ca-pub-1319732109388212"
+                                 data-ad-slot="6789099482"></ins>
+                            <script>
+                                (adsbygoogle = window.adsbygoogle || []).push({});
+                            </script>
+                            <!-- adblock detector -->
+                            <script>
+                                var adBlockEnabled = false;
+                                var testAd = document.createElement('div');
+                                testAd.innerHTML = '&nbsp;';
+                                testAd.className = 'adsbox';
+                                document.body.appendChild(testAd);
+                                window.setTimeout(function () {
+                                    if (testAd.offsetHeight === 0) {
+                                        adBlockEnabled = true;
+                                        window.location = "http://www.movieclick.xyz/remove_adblocker";
+                                    }
+                                    testAd.remove();
+                                }, 100);
+                            </script>
+                        </div>
+
                     </div>
                     <div class="clear"></div>
                     <div class="type-videos">
