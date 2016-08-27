@@ -9,19 +9,11 @@
                     <div class="clear"></div>
                     <div class="type-videos">
                         {#TODO PLACE HERE ADS#}
-                        <h3>Categories</h3>
+                       <h3>Year</h3>
                         <ul>
-                            <li><a href="#">Lorem ipsum dolor</a></li>
-                            <li><a href="#">Lorem ipsum dolor</a></li>
-                            <li><a href="#">Lorem ipsum dolor</a></li>
-                            <li><a href="#">Lorem ipsum dolor</a></li>
-                            <li><a href="#">Lorem ipsum dolor</a></li>
-                            <li><a href="#">Lorem ipsum dolor</a></li>
-                            <li><a href="#">Lorem ipsum dolor</a></li>
-                            <li><a href="#">Lorem ipsum dolor</a></li>
-                            <li><a href="#">Lorem ipsum dolor</a></li>
-                            <li><a href="#">Lorem ipsum dolor</a></li>
-                            <li><a href="#">Lorem ipsum dolor</a></li>
+                            {% for category in categorys %}
+                                <li><a href="{% url 'browse' pk=1 year=category.year %}">{{ category.year }}</a></li>
+                            {% endfor %}
                         </ul>
                     </div>
                 </div>

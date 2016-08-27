@@ -41,24 +41,29 @@ def browse(request, pk, year):
 
 def download(request, pk):
     movie = Movie.objects.get(pk=pk)
+    categorys = Category.objects.all()
     return render(request, 'download.html', {
         'pk': pk,
-        'movie': movie
+        'movie': movie,
+        'categorys': categorys
     })
 
 
 def search(request):
     print('post result' + request.POST['movie'])
+    categorys = Category.objects.all()
+    category_browse = Category.objects.get(id=1)
 
     if request.POST:
         if request.POST['movie'] == 'Search:':
-            movies = Movie.objects.all()[:12]
+            movies = Movie.objects.all()
         else:
             movies = Movie.objects.filter(name__contains=request.POST['movie'])
     else:
         movies = Movie.objects.all()[:12]
-    return render(request, 'index.html', {
-        'movies': movies
+    return render(request, 'search.html', {
+        'movies': movies,
+        'categorys': categorys
     })
 
 
