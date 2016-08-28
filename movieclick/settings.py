@@ -22,10 +22,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'jh_x6l#sdqcvhll2lx^lz5$t*c@3(e%==hs%vudon#=^2#f!jz'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
-
+ALLOWED_HOSTS = ['movieclick.herokuapp.com']
+ALLOWED_HOSTS = ['www.movieclick.xyz']
+ALLOWED_HOSTS = ['127.0.0.1']
 # Application definition
 
 INSTALLED_APPS = [
@@ -74,18 +75,18 @@ WSGI_APPLICATION = 'movieclick.wsgi.application'
 # https://docs.djangoproject.com/en/1.9/ref/settings/#databases
 
 DATABASES = {
-    #  'default': {
-    #     'ENGINE': 'django.db.backends.sqlite3',
-    #     'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
-    # }
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'd97is20vvs4aat',
-        'USER': 'jcwdzkoikrovnv',
-        'PASSWORD': 'o1T3yCMraMElPCAEpZSzyea0Os',
-        'HOST': 'ec2-54-235-76-139.compute-1.amazonaws.com',
-        'PORT': '5432',
+     'default': {
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     }
+    # 'default': {
+    #     'ENGINE': 'django.db.backends.postgresql',
+    #     'NAME': 'd97is20vvs4aat',
+    #     'USER': 'jcwdzkoikrovnv',
+    #     'PASSWORD': 'o1T3yCMraMElPCAEpZSzyea0Os',
+    #     'HOST': 'ec2-54-235-76-139.compute-1.amazonaws.com',
+    #     'PORT': '5432',
+    # }
 }
 
 # Password validation
