@@ -49,10 +49,16 @@ def browse(request, pk, year):
 def download(request, pk):
     movie = Movie.objects.get(pk=pk)
     categorys = Category.objects.all()
+    genres = MovieGenre.objects.filter(movie=movie)
+    genres_list = []
+    for x in genres:
+        genres_list.append(x.genre.name)
+    genre = ", ".join(genres_list)
     return render(request, 'download.html', {
         'pk': pk,
         'movie': movie,
-        'categorys': categorys
+        'categorys': categorys,
+        'genre': genre
     })
 
 
