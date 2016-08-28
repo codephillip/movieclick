@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from movie.models import Category, Movie
+from movie.models import Category, Movie, MovieGenre, Genre
 from django.utils.encoding import smart_str
 from datetime import date
 
@@ -90,6 +90,7 @@ def update_db(request):
 
 
 def connect_to_server():
+    save_genres()
     for page in range(1, 11):
         for year in get_years():
             print('PAGE' + str(page))
@@ -115,32 +116,50 @@ def connect_to_server():
                         image = 'http://image.tmdb.org/t/p/w300/zrAO2OOa6s6dQMQ7zsUbDyIBrAP.jpg'
                     save_to_db(smart_str(x.get('original_title')), image,
                                smart_str(x.get('overview')), x.get('popularity'), x.get('vote_average'),
-                               x.get('release_date'), year)
+                               x.get('release_date'), year, x.get('genre_ids'))
                 except Exception:
                     print(str(Exception))
                     continue
     return varx
 
 
+def save_genres():
+    url = "http://api.themoviedb.org/3/genre/movie/list?api_key=ae6766bd4f9bebf18e24c1bc0c2c282a"
+    json_string = json.load(urllib2.urlopen(url))
+    genre_list = json_string.get('genres')
+    for x in genre_list:
+        try:
+            Genre(genre_pk=x.get('id'), name=x.get('name')).save()
+        except Exception:
+            continue
+
+
 def get_years():
     years = []
     year = date.today().year
-    for x in range(1, 5):
+    for x in range(1, 2):
         years.append(year)
         year -= 1
     return years
 
 
-def save_to_db(title, image, overview, popularity, vote_average, release_date, year):
+def save_to_db(title, image, overview, popularity, vote_average, release_date, year, genre_list):
+    movie = Movie(name=title, image=image, category=get_category(year), description=overview, vote_average=vote_average,
+                  popularity=popularity,
+                  release_date=release_date)
+    movie.save()
+
+    for x in genre_list:
+        MovieGenre(movie=Movie.objects.get(id=movie.id), genre=Genre.objects.get(genre_pk=x)).save()
+
+
+def get_category(year):
     try:
         cate_object = Category.objects.get(year=year)
     except Exception:
         # incase category doesnt exist, create it
         cate_object = Category(year=year).save()
-    movie = Movie(name=title, image=image, category=cate_object, description=overview, vote_average=vote_average,
-                  popularity=popularity,
-                  release_date=release_date)
-    movie.save()
+    return cate_object
 
 
 def remove_adblocker(request):
