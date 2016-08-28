@@ -68,11 +68,11 @@ def search(request):
 
     if request.POST:
         if request.POST['movie'] == 'Search:':
-            movies = Movie.objects.all().order_by('-popularity')
+            movies = Movie.objects.all().order_by('-popularity')[:12]
         else:
             movies = Movie.objects.filter(name__icontains=request.POST['movie'])
     else:
-        movies = Movie.objects.all()[:12]
+        movies = Movie.objects.all().order_by('-popularity')[:12]
     return render(request, 'search.html', {
         'movies': movies,
         'categorys': categorys
