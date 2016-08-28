@@ -143,7 +143,7 @@ def save_genres():
 def get_years():
     years = []
     year = date.today().year
-    for x in range(1, 2):
+    for x in range(1, 5):
         years.append(year)
         year -= 1
     return years
