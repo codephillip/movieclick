@@ -70,7 +70,7 @@ def search(request):
         if request.POST['movie'] == 'Search:':
             movies = Movie.objects.all().order_by('-popularity')
         else:
-            movies = Movie.objects.filter(name__contains=request.POST['movie'])
+            movies = Movie.objects.filter(name__icontains=request.POST['movie'])
     else:
         movies = Movie.objects.all()[:12]
     return render(request, 'search.html', {
