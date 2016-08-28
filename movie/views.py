@@ -95,8 +95,8 @@ def connect_to_server():
             print('PAGE' + str(page))
             base_url = "http://api.themoviedb.org/3/discover/movie?primary_release_year=" + \
                        str(year) + "&sort_by=popularity.desc&api_key=ae6766bd4f9bebf18e24c1bc0c2c282a&"
-            # actual_url = base_url + "page=" + str(page)
-            actual_url = 'http://localhost/downloads/movie1.json'
+            actual_url = base_url + "page=" + str(page)
+            # actual_url = 'http://localhost/downloads/movie1.json'
             print('actual: ' + actual_url)
             json_string = json.load(urllib2.urlopen(actual_url))
 
