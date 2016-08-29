@@ -89,10 +89,22 @@ def watch(request, pk):
 
 # development purposes only
 def update_db(request):
-    item = connect_to_server()
+    # item = connect_to_server()
+    item = 'NOT NOW'
+    rename_values()
     return render(request, 'updatedb.html', {
         'item': item
     })
+
+
+def rename_values():
+    movies = Movie.objects.filter(download_link__icontains='localhost')
+
+    for x in movies:
+        print(x.name)
+        print(x.category)
+        x.download_link = 'http://www.movieclick.xyz/movie_not_found'
+        x.save()
 
 
 def connect_to_server():

@@ -24,7 +24,7 @@ SECRET_KEY = 'jh_x6l#sdqcvhll2lx^lz5$t*c@3(e%==hs%vudon#=^2#f!jz'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['movieclick.herokuapp.com', 'www.movieclick.xyz', '127.0.0.1']
+ALLOWED_HOSTS = ['movieclick.herokuapp.com', 'www.movieclick.xyz', '127.0.0.1', 'localhost']
 # Application definition
 
 INSTALLED_APPS = [

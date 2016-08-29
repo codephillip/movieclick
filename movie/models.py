@@ -15,7 +15,7 @@ class Movie(models.Model):
     name = models.CharField(max_length=200, unique=True, null=True)
     image = models.CharField(max_length=250, default='http://image.tmdb.org/t/p/w300/zrAO2OOa6s6dQMQ7zsUbDyIBrAP.jpg',
                              null=True)
-    download_link = models.CharField(max_length=400, default='http://localhost/downloads/movie1.zip', null=True)
+    download_link = models.CharField(max_length=400, default='http://www.movieclick.xyz/movie_not_found', null=True)
     watch_link = models.CharField(max_length=400,
                                   default='http://dl.fardadownload.ir/Film/2016/Suicide.Squad.2016.%20English.CAM.FardaDownload.mp4',
                                   null=True)
