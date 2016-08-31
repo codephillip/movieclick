@@ -17,7 +17,7 @@ class Movie(models.Model):
                              null=True)
     download_link = models.CharField(max_length=400, default='http://www.movieclick.xyz/movie_not_found', null=True)
     watch_link = models.CharField(max_length=400,
-                                  default='http://dl.fardadownload.ir/Film/2016/Suicide.Squad.2016.%20English.CAM.FardaDownload.mp4',
+                                  default='http://www.movieclick.xyz/movie_not_found',
                                   null=True)
     description = models.TextField(null=True)
     release_date = models.CharField(max_length=100, null=True)

@@ -98,7 +98,7 @@ def update_db(request):
 
 
 def rename_values():
-    movies = Movie.objects.filter(download_link__icontains='localhost')
+    movies = Movie.objects.filter(watch_link__icontains='Suicide')
 
     for x in movies:
         print(x.name)
