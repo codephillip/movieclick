@@ -187,5 +187,5 @@ def remove_adblocker(request):
 def movie_not_found(request, pk):
     movie = Movie.objects.get(pk=pk)
     print("Movie not found: " + movie.name)
-    NotFoundMovie(name=movie.name)
+    NotFoundMovie(name=movie.name).save()
     return render(request, '404.html')
