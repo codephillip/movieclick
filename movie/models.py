@@ -43,3 +43,10 @@ class MovieGenre(models.Model):
 
     def __unicode__(self):
         return force_unicode(smart_str((self.movie.name))) + " # " + force_unicode(smart_str((self.genre.name)))
+
+
+class NotFoundMovie(models.Model):
+    name = models.CharField(max_length=200, unique=True, null=True)
+
+    def __unicode__(self):
+        return self.name

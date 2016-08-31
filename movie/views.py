@@ -1,5 +1,5 @@
 from django.shortcuts import render
-from movie.models import Category, Movie, MovieGenre, Genre
+from movie.models import Category, Movie, MovieGenre, Genre, NotFoundMovie
 from django.utils.encoding import smart_str
 from datetime import date
 
@@ -187,4 +187,5 @@ def remove_adblocker(request):
 def movie_not_found(request, pk):
     movie = Movie.objects.get(pk=pk)
     print("Movie not found: " + movie.name)
+    NotFoundMovie(name=movie.name)
     return render(request, '404.html')
