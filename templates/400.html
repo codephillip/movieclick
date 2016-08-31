@@ -1,7 +1,33 @@
-{% extends 'base.html' %}
-{% block title %} 400 - {{ block.super }}{% endblock %}
-{% block content %}
-    <h1> 400 Error </h1>
-    <p> You've run into a page that doesn't exist! </p>
-    <a href="{% url 'index' %}">Take me home</a>
-{% endblock %}
+<!--
+Author: W3layouts
+Author URL: http://w3layouts.com
+License: Creative Commons Attribution 3.0 Unported
+License URL: http://creativecommons.org/licenses/by/3.0/
+-->
+{% load staticfiles %}
+{% load static %}
+<!DOCTYPE HTML>
+
+<html>
+<head>
+<title>400 Error Page</title>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+<link rel="stylesheet" href="{% static 'css/style2.css' %}css/style.css">
+</head>
+<body>
+<div class="wrap">
+	<a href="{% url 'index' %}"><h1>MovieClick</h1></a>
+	<div class="banner">
+		<img src="{% static 'images/banner2.png' %}" alt="" />
+	</div>
+	<div class="page">
+		<h2>Sorry, we can't find that movie now! <br> Try again Later</h2>
+		<a href="{% url 'index' %}">Take Me Home</a>
+	</div>
+	<div class="footer">
+	</div>
+</div>
+</body>
+</html>
+
