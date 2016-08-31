@@ -103,7 +103,7 @@ def rename_values():
     for x in movies:
         print(x.name)
         print(x.category)
-        x.download_link = 'http://www.movieclick.xyz/movie_not_found'
+        x.watch_link = 'http://www.movieclick.xyz/movie_not_found'
         x.save()
 
 
