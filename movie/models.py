@@ -47,6 +47,7 @@ class MovieGenre(models.Model):
 
 class NotFoundMovie(models.Model):
     name = models.CharField(max_length=200, unique=True, null=True)
+    release_date = models.CharField(max_length=100, null=True)
 
     def __unicode__(self):
         return self.name
