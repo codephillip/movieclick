@@ -30,7 +30,11 @@
                         <h3>DESCRIPTION</h3>
                         <p class="mypara">{{ movie.description }}</p>
                         <h3>RELEASE DATE<br>{{ movie.release_date }}</h3>
-                        <a class="button" href="{{ movie.watch_link }}">Download</a>
+                        {% if movie.watch_link != 'http://www.movieclick.xyz/movie_not_found' %}
+                            <a class="button" href="{{ movie.watch_link }}">Download</a>
+                        {% else %}
+                            <a class="button" href="{% url 'movie_not_found' pk=movie.pk %}">Download</a>
+                        {% endif %}
                     </div>
                 </div>
             </div>

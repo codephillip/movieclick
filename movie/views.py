@@ -182,3 +182,9 @@ def get_category(year):
 
 def remove_adblocker(request):
     return render(request, 'remove_adblocker.html')
+
+
+def movie_not_found(request, pk):
+    movie = Movie.objects.get(pk=pk)
+    print("Movie not found: " + movie.name)
+    return render(request, '404.html')
