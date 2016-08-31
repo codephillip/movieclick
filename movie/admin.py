@@ -13,8 +13,13 @@ class CategoryAdmin(admin.ModelAdmin):
     list_display = ('id', 'year')
 
 
+class NotFoundMovieAdmin(admin.ModelAdmin):
+    model = NotFoundMovie
+    list_display = ('id', 'name', 'release_date')
+
+
 admin.site.register(Movie, MovieAdmin)
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Genre)
 admin.site.register(MovieGenre)
-admin.site.register(NotFoundMovie)
+admin.site.register(NotFoundMovie, NotFoundMovieAdmin)
