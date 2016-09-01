@@ -5,7 +5,7 @@ from movie.models import Movie, Category, Genre, MovieGenre, NotFoundMovie
 
 class MovieAdmin(admin.ModelAdmin):
     model = Movie
-    list_display = ('id', 'name', 'category', 'popularity', 'download_link', 'trailer_link')
+    list_display = ('id', 'name', 'category', 'popularity', 'download_link', 'watch_link', 'trailer_link')
 
 
 class CategoryAdmin(admin.ModelAdmin):
