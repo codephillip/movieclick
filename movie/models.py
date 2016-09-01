@@ -19,6 +19,9 @@ class Movie(models.Model):
     watch_link = models.CharField(max_length=400,
                                   default='http://www.movieclick.xyz/movie_not_found',
                                   null=True)
+    trailer_link = models.CharField(max_length=400,
+                                  default='http://www.movieclick.xyz/movie_not_found',
+                                  null=True)
     description = models.TextField(null=True)
     release_date = models.CharField(max_length=100, null=True)
     vote_average = models.CharField(max_length=100, null=True)
