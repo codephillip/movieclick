@@ -1,0 +1,40 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="main-content">
+        <div class="wrap">
+            <div class="left-sidebar">
+                <div class="sidebar-boxs">
+                    <div class="clear"></div>
+                    <div class="type-videos">
+                        {#TODO PLACE HERE ADS#}
+                        <h3>Year</h3>
+                        <ul>
+                            {% for category in categorys %}
+                                <li><a href="{% url 'browse' pk=1 year=category.year %}">{{ category.year }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="right-content">
+                <div class="right-content-heading">
+                </div>
+                <div class="inner-page">
+                    <h1>{{ movie.name }}</h1>
+                    <div class="video-inner">
+                    {#  TODO youtube plugin #}
+                        <video width="1000" height="500" controls>
+                            <source src="{{ movie.watch_link }}"
+                                    type="video/mp4">
+                            Your browser does not support the video tag.
+                        </video>
+                    </div>
+                </div>
+            </div>
+            <div class="clear"></div>
+        </div>
+    </div>
+    <div class="clear"></div>
+{% endblock %}

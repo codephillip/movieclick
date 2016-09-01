@@ -189,3 +189,12 @@ def movie_not_found(request, pk):
     print("Movie not found: " + movie.name)
     NotFoundMovie(name=movie.name, release_date=movie.release_date).save()
     return render(request, '404.html')
+
+
+def trailer(request, pk):
+    categorys = Category.objects.all()
+    movie = Movie.objects.get(pk=pk)
+    return render(request, 'trailer.html', {
+        'categorys': categorys,
+        'movie': movie,
+    })
