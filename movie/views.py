@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from movie.models import Category, Movie, MovieGenre, Genre, NotFoundMovie
 from django.utils.encoding import smart_str
 from datetime import date
@@ -194,6 +194,8 @@ def movie_not_found(request, pk):
 def trailer(request, pk):
     categorys = Category.objects.all()
     movie = Movie.objects.get(pk=pk)
+    if movie.trailer_link == 'http://www.movieclick.xyz/movie_not_found':
+        return redirect('movie_not_found')
     return render(request, 'trailer.html', {
         'categorys': categorys,
         'movie': movie,
