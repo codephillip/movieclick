@@ -40,31 +40,31 @@
                     <div class="sidebar-box">
                         <div class="myTestAd">
                             <!-- advert code goes here -->
-{#                            <script type="text/javascript">#}
-{#                                clicksor_adhere_opt = 'left';#}
-{##}
-{#                                clicksor_default_url = '';#}
-{#                                clicksor_banner_border = '#99CC33';#}
-{#                                clicksor_banner_ad_bg = '#FFFFFF';#}
-{#                                clicksor_banner_link_color = '#000000';#}
-{#                                clicksor_banner_text_color = '#666666';#}
-{#                                clicksor_layer_border_color = '';#}
-{#                                clicksor_layer_ad_bg = '';#}
-{#                                clicksor_layer_ad_link_color = '';#}
-{#                                clicksor_layer_ad_text_color = '';#}
-{#                                clicksor_text_link_bg = '';#}
-{#                                clicksor_text_link_color = '';#}
-{#                                clicksor_enable_text_link = false;#}
-{##}
-{#                                clicksor_banner_text_banner = false;#}
-{#                                clicksor_banner_image_banner = true;#}
-{#                                clicksor_enable_layer_pop = false;#}
-{#                                clicksor_enable_pop = true;#}
-{#                            </script>#}
-{#                            <script type="text/javascript"#}
-{#                                    src="http://b.yu0123456.com/show.php?nid=1&amp;pid=376792&amp;adtype=5&amp;sid=633877">#}
-{##}
-{#                            </script>#}
+                            {#                            <script type="text/javascript">#}
+                            {#                                clicksor_adhere_opt = 'left';#}
+                            {##}
+                            {#                                clicksor_default_url = '';#}
+                            {#                                clicksor_banner_border = '#99CC33';#}
+                            {#                                clicksor_banner_ad_bg = '#FFFFFF';#}
+                            {#                                clicksor_banner_link_color = '#000000';#}
+                            {#                                clicksor_banner_text_color = '#666666';#}
+                            {#                                clicksor_layer_border_color = '';#}
+                            {#                                clicksor_layer_ad_bg = '';#}
+                            {#                                clicksor_layer_ad_link_color = '';#}
+                            {#                                clicksor_layer_ad_text_color = '';#}
+                            {#                                clicksor_text_link_bg = '';#}
+                            {#                                clicksor_text_link_color = '';#}
+                            {#                                clicksor_enable_text_link = false;#}
+                            {##}
+                            {#                                clicksor_banner_text_banner = false;#}
+                            {#                                clicksor_banner_image_banner = true;#}
+                            {#                                clicksor_enable_layer_pop = false;#}
+                            {#                                clicksor_enable_pop = true;#}
+                            {#                            </script>#}
+                            {#                            <script type="text/javascript"#}
+                            {#                                    src="http://b.yu0123456.com/show.php?nid=1&amp;pid=376792&amp;adtype=5&amp;sid=633877">#}
+                            {##}
+                            {#                            </script>#}
                             <!-- adblock detector -->
                             {#                            <script>#}
                             {#                                var adBlockEnabled = false;#}
@@ -93,26 +93,13 @@
                 </div>
                 <div class="content-grids">
                     {% for movie in movies %}
-                        {% if forloop.counter == 4 %}
+                        {% if forloop.counter == 4 or forloop.counter == 8 or forloop.counter == 12 %}
                             <div class="content-grid last-grid">
                                 <a href="{% url 'download' pk=movie.pk %}"><img src="{{ movie.image }}"
                                                                                 title="allbum-name"/></a>
                                 <h3>{{ movie.name|truncatechars:25 }}</h3>
                                 <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a>
-                            </div>
-                        {% elif forloop.counter == 8 %}
-                            <div class="content-grid last-grid">
-                                <a href="{% url 'download' pk=movie.pk %}"><img src="{{ movie.image }}"
-                                                                                title="allbum-name"/></a>
-                                <h3>{{ movie.name|truncatechars:25 }}</h3>
-                                <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a>
-                            </div>
-                        {% elif forloop.counter == 12 %}
-                            <div class="content-grid last-grid">
-                                <a href="{% url 'download' pk=movie.pk %}"><img src="{{ movie.image }}"
-                                                                                title="allbum-name"/></a>
-                                <h3>{{ movie.name|truncatechars:25 }}</h3>
-                                <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a>
+                                <a class="button" href="{% url 'trailer' pk=movie.pk %}">Trailer</a>
                             </div>
                         {% else %}
                             <div class="content-grid">
@@ -120,9 +107,9 @@
                                                                                 title="allbum-name"/></a>
                                 <h3>{{ movie.name|truncatechars:25 }}</h3>
                                 <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a>
+                                <a class="button" href="{% url 'trailer' pk=movie.pk %}">Trailer</a>
                             </div>
                         {% endif %}
-
                     {% endfor %}
 
 
