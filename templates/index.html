@@ -99,6 +99,7 @@
                                                                                 title="allbum-name"/></a>
                                 <h3>{{ movie.name|truncatechars:25 }}</h3>
                                 <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a>
+                                <a class="button" href="{% url 'trailer' pk=movie.pk %}">Trailer</a>
                             </div>
                         {% else %}
                             <div class="content-grid">
@@ -106,6 +107,7 @@
                                                                                 title="allbum-name"/></a>
                                 <h3>{{ movie.name|truncatechars:25 }}</h3>
                                 <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a>
+                                <a class="button" href="{% url 'trailer' pk=movie.pk %}">Trailer</a>
                             </div>
                         {% endif %}
                     {% endfor %}
