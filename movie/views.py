@@ -204,7 +204,13 @@ def trailer(request, pk):
 
 
 def contact(request):
-    form = check_form_validity(request)
+    if request.method == 'POST':
+        form = FeedBackForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect('index')
+    else:
+        form = FeedBackForm()
     categorys = Category.objects.filter(year__gte=last_year).order_by('-year')
     return render(request, 'contact.html', {
         'categorys': categorys,
@@ -216,13 +222,7 @@ def check_form_validity(request):
     if request.method == 'POST':
         form = FeedBackForm(request.POST)
         if form.is_valid():
-            data = form.cleaned_data
-            save_feedback(data)
+            form.save()
     else:
         form = FeedBackForm()
     return form
-
-
-def save_feedback(data):
-    print(data['feedback'])
-    FeedBack(feedback=data['feedback'], date=date.today()).save()
