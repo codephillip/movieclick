@@ -15,7 +15,6 @@ def index(request):
     print('index')
     categorys = Category.objects.filter(year__gte=last_year).order_by('-year')
     # get the latest year to display on the index page
-    # index_page_category = Category.objects.all().order_by('-year')
     first_id = categorys[0].id
     # pass the current category to the browse page
     category_browse = Category.objects.get(id=first_id)
@@ -200,4 +199,11 @@ def trailer(request, pk):
     return render(request, 'trailer.html', {
         'categorys': categorys,
         'movie': movie,
+    })
+
+
+def contact(request):
+    categorys = Category.objects.filter(year__gte=last_year).order_by('-year')
+    return render(request, 'contact.html', {
+        'categorys': categorys
     })

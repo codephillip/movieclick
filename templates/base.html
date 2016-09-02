@@ -44,6 +44,11 @@
         <!---End-logo---->
         <!---start-top-menu-search---->
         <div class="top-menu">
+            <div class="top-nav">
+						<ul>
+							<li><a href="{% url 'contact' %}">Contact</a></li>
+						</ul>
+					</div>
             <div class="search">
                 <form action="{% url 'search' %}" method="post">
                     {% csrf_token %}

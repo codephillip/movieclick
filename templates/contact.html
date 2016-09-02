@@ -1,0 +1,47 @@
+{% extends 'base.html' %}
+
+{% block content %}
+
+    <div class="main-content">
+        <div class="wrap">
+            <div class="left-sidebar">
+                <div class="sidebar-boxs">
+                    <div class="clear"></div>
+                    <div class="type-videos">
+                        <h3>Categories</h3>
+                        <ul>
+                            {% for category in categorys %}
+                                <li><a href="{% url 'browse' pk=1 year=category.year %}">{{ category.year }}</a></li>
+                            {% endfor %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="right-content">
+                <div class="right-content-heading">
+                    <div class="section group">
+                        <div class="col span_2_of_3">
+                            <div class="contact-form">
+                                <h3>Contact Us</h3>
+                                <form method="post" action="contact-post.html">
+                                    <div>
+                                        <span><label>SUBJECT</label></span>
+                                        <span><textarea name="userMsg"
+                                                        placeholder="Type your feedback here"> </textarea></span>
+                                    </div>
+                                    <div>
+                                        <span><input type="submit" value="Submit"></span>
+                                    </div>
+                                </form>
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="clear"></div>
+            </div>
+        </div>
+    </div>
+    <div class="clear"></div>
+    <br><br><br><br><br><br><br><br><br><br>
+{% endblock %}
