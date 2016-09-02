@@ -1,7 +1,8 @@
 from django.shortcuts import render, redirect
-from movie.models import Category, Movie, MovieGenre, Genre, NotFoundMovie
+from movie.models import Category, Movie, MovieGenre, Genre, NotFoundMovie, FeedBack
 from django.utils.encoding import smart_str
 from datetime import date
+from movie.forms import FeedBackForm
 
 import simplejson as json
 import urllib2
@@ -203,7 +204,25 @@ def trailer(request, pk):
 
 
 def contact(request):
+    form = check_form_validity(request)
     categorys = Category.objects.filter(year__gte=last_year).order_by('-year')
     return render(request, 'contact.html', {
-        'categorys': categorys
+        'categorys': categorys,
+        'form': form,
     })
+
+
+def check_form_validity(request):
+    if request.method == 'POST':
+        form = FeedBackForm(request.POST)
+        if form.is_valid():
+            data = form.cleaned_data
+            save_feedback(data)
+    else:
+        form = FeedBackForm()
+    return form
+
+
+def save_feedback(data):
+    print(data['feedback'])
+    FeedBack(feedback=data['feedback'], date=date.today()).save()
