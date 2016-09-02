@@ -54,3 +54,11 @@ class NotFoundMovie(models.Model):
 
     def __unicode__(self):
         return self.name
+
+
+class FeedBack(models.Model):
+    name = models.TextField(max_length=200, unique=True, null=True)
+    date = models.DateField(max_length=100, null=True)
+
+    def __unicode__(self):
+        return force_unicode(smart_str((self.date)))
