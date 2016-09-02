@@ -5,27 +5,40 @@
     <meta charset="UTF-8">
     <meta name="description" content="Get all the latest movies in one place">
     <meta name="keywords" content="Movie, Download, movies, movie, latest">
-    <meta name="propeller" content="c0b2a8aab0dde7bf6d1af062d20fb98c" />
+    <meta name="propeller" content="c0b2a8aab0dde7bf6d1af062d20fb98c"/>
     <title>
         {% block title %}
             MovieClick
         {% endblock %}
     </title>
     <link rel="stylesheet" href={% static 'css/styles.css' %} type="text/css" media="all">
-<!-- Facebook Pixel Code -->
+    <!-- Facebook Pixel Code -->
     <script>
-        !function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
-        n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
-        n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
-        t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
-        document,'script','https://connect.facebook.net/en_US/fbevents.js');
+        !function (f, b, e, v, n, t, s) {
+            if (f.fbq)return;
+            n = f.fbq = function () {
+                n.callMethod ?
+                        n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq)f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window,
+                document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
 
         fbq('init', '178727789220035');
         fbq('track', "PageView");</script>
-        <noscript><img height="1" width="1" style="display:none"
-        src="https://www.facebook.com/tr?id=178727789220035&ev=PageView&noscript=1"/>
+    <noscript><img height="1" width="1" style="display:none"
+                   src="https://www.facebook.com/tr?id=178727789220035&ev=PageView&noscript=1"/>
     </noscript>
-<!-- End Facebook Pixel Code -->
+    <!-- End Facebook Pixel Code -->
 </head>
 <body>
 {#pop under ad#}
@@ -45,11 +58,11 @@
         <!---start-top-menu-search---->
         <div class="top-menu">
             <div class="top-nav">
-						<ul>
-							<li><a href="{% url 'index' %}">Movies</a></li>
-							<li><a href="{% url 'feedback' %}">Feedback</a></li>
-						</ul>
-					</div>
+                <ul>
+                    <li><a href="{% url 'index' %}">Movies</a></li>
+                    <li><a href="{% url 'feedback' %}">Feedback</a></li>
+                </ul>
+            </div>
             <div class="search">
                 <form action="{% url 'search' %}" method="post">
                     {% csrf_token %}
