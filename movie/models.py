@@ -57,7 +57,7 @@ class NotFoundMovie(models.Model):
 
 
 class FeedBack(models.Model):
-    feedback = models.TextField(max_length=200, null=True)
+    feedback = models.TextField(null=True)
     date = models.DateField(max_length=100, null=True)
 
     def __unicode__(self):
