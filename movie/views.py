@@ -8,14 +8,15 @@ import urllib2
 
 next_limit = 60
 varx = "hello"
+last_year = 2015
 
 
 def index(request):
     print('index')
-    categorys = Category.objects.all()
+    categorys = Category.objects.filter(year__gte=last_year).order_by('-year')
     # get the latest year to display on the index page
-    index_page_category = Category.objects.all().order_by('-year')
-    first_id = index_page_category[0].id
+    # index_page_category = Category.objects.all().order_by('-year')
+    first_id = categorys[0].id
     # pass the current category to the browse page
     category_browse = Category.objects.get(id=first_id)
     movies = Movie.objects.filter(category=Category.objects.filter(id=first_id)).order_by('-popularity')[:12]
@@ -29,7 +30,7 @@ def index(request):
 def browse(request, pk, year):
     global next_limit
     end = int(pk)
-    categorys = Category.objects.all()
+    categorys = Category.objects.filter(year__gte=last_year).order_by('-year')
     category_browse = Category.objects.get(year=year)
     if end == 1:
         movies = Movie.objects.filter(category=category_browse).order_by('-popularity')[:12]
@@ -48,7 +49,7 @@ def browse(request, pk, year):
 
 def download(request, pk):
     movie = Movie.objects.get(pk=pk)
-    categorys = Category.objects.all()
+    categorys = Category.objects.filter(year__gte=last_year).order_by('-year')
     genres = MovieGenre.objects.filter(movie=movie)
     genres_list = []
     for x in genres:
@@ -64,7 +65,7 @@ def download(request, pk):
 
 def search(request):
     print('post result' + request.POST['movie'])
-    categorys = Category.objects.all()
+    categorys = Category.objects.filter(year__gte=last_year).order_by('-year')
 
     if request.POST:
         if request.POST['movie'] == 'Search:':
@@ -192,7 +193,7 @@ def movie_not_found(request, pk):
 
 
 def trailer(request, pk):
-    categorys = Category.objects.all()
+    categorys = Category.objects.filter(year__gte=last_year).order_by('-year')
     movie = Movie.objects.get(pk=pk)
     if movie.trailer_link == 'http://www.movieclick.xyz/movie_not_found':
         return redirect('movie_not_found')
