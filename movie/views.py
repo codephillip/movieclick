@@ -64,16 +64,16 @@ def download(request, pk):
 
 
 def search(request):
-    print('post result' + request.POST['movie'])
+    print('post result: ' + request.POST['movie'])
     categorys = Category.objects.filter(year__gte=last_year).order_by('-year')
 
     if request.POST:
         if request.POST['movie'] == 'Search:':
-            movies = Movie.objects.all().order_by('-popularity')[:12]
+            movies = Movie.objects.filter(category__year__gte=last_year).order_by('-popularity')[:12]
         else:
-            movies = Movie.objects.filter(name__icontains=request.POST['movie'])
+            movies = Movie.objects.filter(name__icontains=request.POST['movie'], category__year__gte=last_year)
     else:
-        movies = Movie.objects.all().order_by('-popularity')[:12]
+        movies = Movie.objects.filter(category__year__gte=last_year).order_by('-popularity')[:12]
     return render(request, 'search.html', {
         'movies': movies,
         'categorys': categorys
@@ -119,11 +119,7 @@ def connect_to_server():
             # actual_url = 'http://localhost/downloads/movie1.json'
             print('actual: ' + actual_url)
             json_string = json.load(urllib2.urlopen(actual_url))
-
-            print(json_string.get('results'))
             results = json_string.get('results')
-            print(results)
-
             for x in results:
                 global varx
                 varx = smart_str(x.get('original_title'))
