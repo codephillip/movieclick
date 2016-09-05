@@ -73,6 +73,7 @@
                                                                             title="allbum-name"/></a>
                             <h3>{{ movie.name|truncatechars:25 }}</h3>
                             <a class="button" href="{% url 'download' pk=movie.pk %}">Download</a>
+                            <a class="button" href="{% url 'trailer' pk=movie.pk %}">Trailer</a>
                         </div>
                     {% endfor %}
                     <div class="clear"></div>
